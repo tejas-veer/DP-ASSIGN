@@ -1,5 +1,8 @@
 package net.media.training.designpattern.observer;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GameTestClient {
     public Person person;
     public Sun sun;
@@ -14,11 +17,14 @@ public class GameTestClient {
         cat = new Cat();
         robot = new Robot();
 
-        Sun sun = new Sun();
-        sun.addCharacter(cat);
-        sun.addCharacter(dog);
-        sun.addCharacter(robot);
-        sun.addCharacter(person);
+        List<Character> characters = new ArrayList<>();
+        characters.add(person);
+        characters.add(dog);
+        characters.add(cat);
+        characters.add(robot);
+
+        Sun sun = new Sun(characters);
+        
 
         game = new Game(sun);
     }
