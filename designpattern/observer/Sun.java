@@ -14,17 +14,17 @@ public class Sun {
     private boolean isUp;
     List<Character> characters = new ArrayList<>();
 
-    public Sun(){
-
+    public Sun(List<Character> characters){
+        this.characters = characters;
     }
 
-    public void addCharacter(Character character) {
-        characters.add(character);
-    }
+    // public void addCharacter(Character character) {
+    //     characters.add(character);
+    // }
 
-    public void removeCharacter(Character character) {
-        characters.remove(character);
-    }
+    // public void removeCharacter(Character character) {
+    //     characters.remove(character);
+    // }
 
     public boolean isUp() {
         return isUp;
@@ -34,9 +34,7 @@ public class Sun {
         isUp = false;
 
         for (Character character : characters) {
-            if (character.isOutdoors()) {
                 character.notifySunSet();
-            }
         }
 
     }
@@ -45,9 +43,7 @@ public class Sun {
         isUp = true;
 
          for (Character character : characters) {
-            if (character.isOutdoors()) {
                 character.notifySunRose();
-            }
         }
 
     }

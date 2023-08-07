@@ -42,7 +42,4 @@ public class Robot implements Character{
         return feelingTired;
     }
 
-    @Override
-    public void update() {
-    }
 }

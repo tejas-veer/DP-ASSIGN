@@ -43,9 +43,5 @@ public class Person implements Character{
         return feelingTired;
     }
 
-    @Override
-    public void update() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
-    }
+
 }

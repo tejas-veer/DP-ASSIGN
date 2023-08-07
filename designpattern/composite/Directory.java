@@ -2,7 +2,6 @@ package net.media.training.designpattern.composite;
 
 import java.util.List;
 
-import javax.swing.plaf.basic.BasicSliderUI.ComponentHandler;
 
 /**
  * Created by IntelliJ IDEA.
@@ -29,7 +28,7 @@ public class Directory implements FileComponent{
         }
     }
 
-    public int getSize(FileComponent component) {
+    public int getSize() {
         int sum = 0;
 
         for (FileComponent fileComponent : components) {
@@ -57,16 +56,7 @@ public class Directory implements FileComponent{
         components.add(component);
     }
 
-    private boolean fileExists(String name, FileComponent directoryToSearch) {
-        for (FileComponent component : components) {
-            if (component.getName().equals(name)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private boolean directoryExists(String name, FileComponent directoryToSearch) {
+    public boolean componentExists(String name, FileComponent directoryToSearch) {
         if (directoryToSearch.getName().equals(name))
             return true;
 
@@ -75,9 +65,9 @@ public class Directory implements FileComponent{
                 return true;
             }
         }
-
         return false;
     }
+
 
     public List<FileComponent> getFiles() {
         return components;
@@ -89,12 +79,6 @@ public class Directory implements FileComponent{
 
     public FileComponent getParent() {
         return parent;
-    }
-
-    @Override
-    public int getSize() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getSize'");
     }
 
 }

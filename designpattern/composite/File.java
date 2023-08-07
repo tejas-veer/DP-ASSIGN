@@ -7,7 +7,7 @@ package net.media.training.designpattern.composite;
  * Time: 9:18:04 PM
  * To change this template use pre_refactoring.File | Settings | pre_refactoring.File Templates.
  */
-public class File implements FileComposite{
+public class File implements FileComponent{
     private final String name;
     private int size;
     private Directory parent;
@@ -17,7 +17,7 @@ public class File implements FileComposite{
         this.size = size;
     }
 
-    public void setParent(Directory parent) {
+    public void setParent(FileComponent parent) {
         this.parent = parent;
     }
 
@@ -32,5 +32,6 @@ public class File implements FileComposite{
     public Directory getParent() {
         return parent;
     }
+
 
 }

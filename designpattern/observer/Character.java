@@ -1,7 +1,6 @@
 package net.media.training.designpattern.observer;
 
 interface Character {
-    void update();
 
     boolean isOutdoors();
 
@@ -14,6 +13,8 @@ interface Character {
     boolean isFeelingWarm();
 
     boolean isFeelingTired();
+
+    void goOutdoors();
 
 
 }
