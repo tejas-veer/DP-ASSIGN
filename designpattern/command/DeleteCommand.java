@@ -13,6 +13,5 @@ public class DeleteCommand implements Command {
 
     @Override
     public void undo() {
-        // Restore the deleted file (if possible)
     }
 }
