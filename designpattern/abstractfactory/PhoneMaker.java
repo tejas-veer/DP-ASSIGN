@@ -9,19 +9,21 @@ package net.media.training.designpattern.abstractfactory;
  */
 public class PhoneMaker {
 
-    public Phone buildPhone(String phoneType) {
+    public Case buildPhone(String phoneType) {
+        Factory factory;
         if (phoneType.equals("Android")) {
-            return new AndriodPhone(new AndroidMotherBoard() , new AndroidScreen() , new AndroidCase());
+           factory = new AndriodFactory();
         } else {
-            return new IphonePhone(new IphoneMotherBoard() , new IphoneScreen() , new IphoneCase());
+            factory = new IphoneFactory();
         }
+        MotherBoard motherBoard= factory.attachMotherBoard();
+        Screen screen = factory.attachScreen();
+        Case phoneCase = factory.attachCase();
+        phoneCase.attachScreen(screen);
+        phoneCase.attachMotherBoard(motherBoard);
+
+        return phoneCase;
 
     }
 
-    public static void main(String[] args) {
-
-        Phone myAndriodPhone = new PhoneMaker().buildPhone("Andriod");
-        Phone myIphone = new PhoneMaker().buildPhone("Iphone");
-
-    }
 }
