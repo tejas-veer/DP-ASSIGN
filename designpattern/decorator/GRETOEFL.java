@@ -11,8 +11,6 @@ public class GRETOEFL extends GPAEval {
 
     @Override
     public boolean evaluate(Application theApp) {
-        return super.evaluate(theApp)
-                && theApp.getGre() > 1450
-                && theApp.getToefl() > 100;
+        return  new TOFLDecorator(new GREDecorator(new GPAEval())).evaluate(theApp);
     }
 }

@@ -9,7 +9,13 @@ package net.media.training.designpattern.strategy;
  */
 public class Manager extends CompanyMember {
     private String managementBand;
+    StringValidationStrategy managementBandStrategy;
 
+    Manager(StringValidationStrategy nameStrategy,IntegerValidationStrategy salaryStrategy,StringValidationStrategy managerNameStrategy,StringValidationStrategy managementBandStrategy){
+        super(nameStrategy,salaryStrategy,managerNameStrategy);
+        this.managementBandStrategy = managementBandStrategy;
+
+    }
     @Override
     public void setSalary(int salary) {
         super.setSalary(salary);

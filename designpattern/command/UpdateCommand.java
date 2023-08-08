@@ -1,3 +1,8 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 public class UpdateCommand implements Command {
     private final String fileName;
     private final String content;

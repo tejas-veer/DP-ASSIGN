@@ -1,3 +1,7 @@
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 public class MoveCommand implements Command {
     private final String source;
     private final String destination;

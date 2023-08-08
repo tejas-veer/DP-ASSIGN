@@ -48,6 +48,23 @@ public class Directory implements FileComponent{
         components.remove(component);
     }
 
+    private void delete(Directory component) {
+        List<FileSystemComponent> copyComponents = new ArrayList(component.getComponents());
+
+        for (FileSystemComponent comp : copyComponents) {
+            if (comp instanceof Directory) {
+                delete((Directory)comp);
+            } else {
+                components.remove(comp);
+            }
+        }
+
+        if (component.getParent() != null) {
+            component.getParent().removeEntry(component);
+        }
+    }
+
+
     public void delete() {
         delete(this);
     }
